@@ -7,7 +7,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){
   static char blink_count=0;
   static int buzzer_period = 2000;
   static int counter = 0;
-
+  //Sound counter starter
   if(++blink_count == 250 && counter < 7){
 
     blink_count = 0;
@@ -25,7 +25,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){
 
     }
 
-
+    //After 6 Secs game starts
   }else if(counter >= 7){
 
     startGame = 1;
@@ -36,6 +36,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){
     blink_count = 0;
     counter++;
   }
+  //After 30 secs game ends
   if(counter > 36){
     endGame = 1;
     buzzer_set_period(buzzer_period);
