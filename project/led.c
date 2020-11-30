@@ -33,6 +33,7 @@ void led_update(){
 	ledFlags |= 0;
 	P1OUT &= (0xff - LEDS) | ledFlags; // clear bits for off leds
 	P1OUT |= ledFlags;         // set bits for on leds
+	P1OUT &= ~ledFlags;
       }
       if(player1 > player2){
 
@@ -40,6 +41,7 @@ void led_update(){
 	ledFlags |= LED_RED;
 	P1OUT &= (0xff - LEDS) | ledFlags; // clear bits for off leds
 	P1OUT |= ledFlags;         // set bits for on leds
+	//P1OUT &= ~ledFlags;
       }
 
     }
